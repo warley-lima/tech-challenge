@@ -1,15 +1,19 @@
+from typing import Optional
 from bs4 import BeautifulSoup
 import httpx
 
 class HtmlService:
     @staticmethod
-    async def get_html(year: int, option: str):
+    async def get_html(year: int, option: str, sub_option: Optional[str] = None):
         """
         Função para obter o HTML de uma URL e extrair dados da tabela.
         :param url: URL da página a ser obtida.
         :return: Dados extraídos da tabela.
         """
-        url = f"http://vitibrasil.cnpuv.embrapa.br/index.php?ano={year}&opcao={option}"
+        if sub_option is None:
+             url = f"http://vitibrasil.cnpuv.embrapa.br/index.php?ano={year}&opcao={option}"
+        else:
+             url = f"http://vitibrasil.cnpuv.embrapa.br/index.php?ano={year}&opcao={option}&subopcao={sub_option}"    
         
         print(f"Buscando URL: {url}") # Para depuração
         try:
