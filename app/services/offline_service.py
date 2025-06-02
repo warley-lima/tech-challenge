@@ -13,7 +13,8 @@ class OfflineService:
         dir_root_proj = os.path.dirname(dir_app)
         if subDir is None:
             subDir = ''
-        path_data = os.path.join(dir_root_proj, f'data\{dir}\{subDir}')
+        
+        path_data = os.path.join(dir_root_proj, 'data', dir, subDir)
         name_file_csv = f"{year}.csv"
         path_csv = os.path.join(path_data,  name_file_csv) 
         try:
