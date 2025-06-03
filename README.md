@@ -24,14 +24,14 @@ Este projeto é uma API desenvolvida em FastAPI para consulta de dados públicos
 
 Para acessar a API, é necessário autenticar-se e obter um token JWT.
 
-- **Endpoint:** `POST http://127.0.0.1:8000/token`
+- **Endpoint:** `POST https://tech-challenge-0xyz.onrender.com/token`
 - **Usuário:** `user`
 - **Senha:** `123456`
 
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/token" \
+curl -X POST "https://tech-challenge-0xyz.onrender.com/token" \
     -H "Content-Type: application/x-www-form-urlencoded" \
     -d "username=user&password=123456"
 ```
@@ -51,7 +51,7 @@ Após obter o token de acesso, inclua-o no cabeçalho `Authorization` das suas r
 Exemplo de requisição autenticada usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/user/auth/" \
+curl -X GET "https://tech-challenge-0xyz.onrender.com/user/auth/" \
     -H "Authorization: Bearer <seu_token_aqui>"
 ```
 
@@ -61,7 +61,7 @@ Substitua `<seu_token_aqui>` pelo token recebido na etapa anterior.
 Para acessar informações específicas de um determinado ano, utilize o endpoint protegido abaixo. É necessário incluir o token de autenticação no cabeçalho da requisição.
 As opções diponíveis são: producao, processamento, comercializacao, importacao, exportacao, publicacao
 
-- **Endpoint:** `GET http://127.0.0.1:8000/protected/ano/{year}/{option}`
+- **Endpoint:** `GET https://tech-challenge-0xyz.onrender.com/protected/ano/{year}/{option}`
 
 Substitua `{year}` pelo ano desejado (ex: `2023`) e `{option}` pela opção correspondente.
 As opções disponíveis para o endpoint sâo: producao, processamento, comercializacao, importacao, exportacao.
@@ -69,7 +69,7 @@ As opções disponíveis para o endpoint sâo: producao, processamento, comercia
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/protected/ano/2023/producao" \
+curl -X GET "https://tech-challenge-0xyz.onrender.com/protected/ano/2023/producao" \
     -H "Authorization: Bearer <seu_token_aqui>"
 ```
 
@@ -77,7 +77,7 @@ Lembre-se de substituir `<seu_token_aqui>` pelo token JWT obtido anteriormente.
 
 Também é possível consultar as informações das subopções, são elas: uvas, espumantes, americanas, vinhos, viniferas, passas, suco, unclass.
 
-- **Endpoint:** `GET http://127.0.0.1:8000/protected/ano/{year}/{option}?{sub_option}`
+- **Endpoint:** `GET https://tech-challenge-0xyz.onrender.com/protected/ano/{year}/{option}?{sub_option}`
 
 Substitua `{year}` pelo ano desejado (ex: `2022`) e `{option}` pela opção correspondente.
 As opções disponíveis para o endpoint sâo: processamento, importacao, exportacao; e `{sub_option}` pela subopção correspondente, são elas: uvas, espumantes, americanas, vinhos, viniferas, passas, suco, unclass. 
@@ -85,7 +85,7 @@ As opções disponíveis para o endpoint sâo: processamento, importacao, export
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/protected/ano/2022/exportacao?sub_option=uvas" \
+curl -X GET "https://tech-challenge-0xyz.onrender.com/protected/ano/2022/exportacao?sub_option=uvas" \
     -H "Authorization: Bearer <seu_token_aqui>"
 ```
 
@@ -96,7 +96,7 @@ Este endpoint permite consultar dados offline (arquivos CSV locais) de acordo co
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/protected/offline/ano/2022/producao" \
+curl -X GET "https://tech-challenge-0xyz.onrender.com/protected/offline/ano/2022/producao" \
     -H "Authorization: Bearer <seu_token_aqui>"
 ```
 
@@ -107,7 +107,7 @@ Este endpoint permite consultar dados offline (arquivos CSV locais) de acordo co
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/protected/offline/ano/2022/exportacao?sub_option=suco" \
+curl -X GET "https://tech-challenge-0xyz.onrender.com/protected/offline/ano/2022/exportacao?sub_option=suco" \
     -H "Authorization: Bearer <seu_token_aqui>"
 ```
 
@@ -117,12 +117,12 @@ Alguns endpoints da API não exigem autenticação e podem ser acessados livreme
 
 ### Exemplo de endpoint público
 
-- **Endpoint:** `GET http://127.0.0.1:8000/public/`
+- **Endpoint:** `GET https://tech-challenge-0xyz.onrender.com/public/`
 
 Exemplo de requisição usando `curl`:
 
 ```bash
-curl -X GET "http://127.0.0.1:8000/public/"
+curl -X GET "https://tech-challenge-0xyz.onrender.com/public/"
 ```
 
 A resposta será os dados da produção de 2023 em formato JSON.
